@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.WebDriver;
 
 class SimpleFormDemoTest {
@@ -38,9 +40,24 @@ class SimpleFormDemoTest {
 
     @Test
     void showMessageInInputField() {
+        // Arrange
+        simpleFormDemo.navigateToSimpleFormDemo();
+        // Act
+        simpleFormDemo.showMessageInInputField();
+        // Assert
+        String expected = "Hello World";
+        Assertions.assertEquals(expected, simpleFormDemo.getMessage());
     }
 
-    @Test
-    void getTotalOfTwoInputField() {
+    @ParameterizedTest
+    @CsvSource({"100, 300", "10, 90", "400, 600"})
+    void getTotalOfTwoInputField(int num1, int num2) {
+        // Arrange
+        simpleFormDemo.navigateToSimpleFormDemo();
+        // Act
+        simpleFormDemo.getTotalOfTwoInputField(num1, num2);
+        // Assert
+        int expected = num1 + num2;
+        Assertions.assertEquals(expected, Integer.parseInt(simpleFormDemo.getTotal()));
     }
 }
