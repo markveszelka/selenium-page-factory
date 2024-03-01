@@ -10,7 +10,7 @@ import java.time.Duration;
 public class SimpleFormDemo extends InputForm {
 
     private final By simpleFormDemoElement = By.xpath("(//a[text()='All Examples']/following::a[text()='Simple Form Demo'])[1]");
-    private final By pageHeadingElement = By.xpath("//h3");
+    private final By pageHeadingElement = By.xpath("//h3[text()='This would be your first example to start with Selenium.']");
 
     public SimpleFormDemo(WebDriver webDriver) {
         super(webDriver);
