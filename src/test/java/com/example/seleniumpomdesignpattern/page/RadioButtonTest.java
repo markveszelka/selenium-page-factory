@@ -22,8 +22,8 @@ class RadioButtonTest {
 
     public static Stream<Arguments> singleRadioTestCases() {
         return Stream.of(
-                Arguments.of(By.xpath("//input[@value='Male' and @name='optradio']")),
-                Arguments.of(By.xpath("//input[@value='Female' and @name='optradio']"))
+                Arguments.of(RadioButton.MALE_1_ELEMENT),
+                Arguments.of(RadioButton.FEMALE_1_ELEMENT)
         );
     }
 

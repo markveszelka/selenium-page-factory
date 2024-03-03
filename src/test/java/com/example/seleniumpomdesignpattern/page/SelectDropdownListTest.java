@@ -11,8 +11,6 @@ import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Locale;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SelectDropdownListTest {
 
     private static final String TEST_PAGE_URL = "https://web.archive.org/web/20180930221201/http://www.seleniumeasy.com/test/";
