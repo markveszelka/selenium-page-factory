@@ -30,7 +30,8 @@ class RadioButtonTest {
     public static Stream<Arguments> multipleRadioTestCases() {
         return Stream.of(
                 Arguments.of(List.of(RadioButton.MALE_2_ELEMENT, RadioButton.FIFTEEN_TO_FIFTY)),
-                Arguments.of(List.of(RadioButton.FEMALE_2_ELEMENT, RadioButton.FIFTEEN_TO_FIFTY))
+                Arguments.of(List.of(RadioButton.FEMALE_2_ELEMENT, RadioButton.ZERO_TO_FIVE)),
+                Arguments.of(List.of(RadioButton.MALE_2_ELEMENT, RadioButton.FIVE_TO_FIFTEEN))
         );
     }
 
