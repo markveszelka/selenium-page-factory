@@ -7,15 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.openqa.selenium.WebDriver;
 
 import java.util.List;
 import java.util.stream.Stream;
 
 class CheckboxDemoTest {
 
-    private static final String TEST_PAGE_URL = "https://web.archive.org/web/20180930221201/http://www.seleniumeasy.com/test/";
-    private WebDriver driver;
+    private CheckboxDemo checkboxDemo;
 
     public static Stream<Arguments> checkboxValidationTestCases() {
         return Stream.of(
@@ -26,23 +24,19 @@ class CheckboxDemoTest {
 
     @BeforeEach
     void setUp() {
-        driver = WebDriverProvider.setupWebDriver();
-        driver.get(TEST_PAGE_URL);
-        // Arrange
-        SimpleFormDemo simpleFormDemo = new SimpleFormDemo(driver);
-        simpleFormDemo.navigateIntoInputFormsMenu();
+        checkboxDemo = new CheckboxDemo(WebDriverProvider.setupWebDriver());
+        checkboxDemo.openBasePage();
+        checkboxDemo.navigateIntoInputFormsMenu();
     }
 
     @AfterEach
     void tearDown() {
-        driver.quit();
+        checkboxDemo.quitWebDriver();
     }
 
     @ParameterizedTest
     @MethodSource("checkboxValidationTestCases")
     void checkBoxValidation(boolean singleCheckBoxValue, List<Boolean> multipleCheckboxValues) {
-        // Arrange
-        CheckboxDemo checkboxDemo = new CheckboxDemo(driver);
         // Act
         checkboxDemo.checkBoxValidation(singleCheckBoxValue, multipleCheckboxValues);
         // Assert

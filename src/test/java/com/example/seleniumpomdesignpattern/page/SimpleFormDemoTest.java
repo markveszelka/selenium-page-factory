@@ -7,26 +7,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.openqa.selenium.WebDriver;
 
 class SimpleFormDemoTest {
 
-    private static final String TEST_PAGE_URL = "https://web.archive.org/web/20180930221201/http://www.seleniumeasy.com/test/";
-    private WebDriver driver;
     private SimpleFormDemo simpleFormDemo;
 
     @BeforeEach
     void setUp() {
-        driver = WebDriverProvider.setupWebDriver();
-        driver.get(TEST_PAGE_URL);
-        // Arrange
-        simpleFormDemo = new SimpleFormDemo(driver);
+        simpleFormDemo = new SimpleFormDemo(WebDriverProvider.setupWebDriver());
+        simpleFormDemo.openBasePage();
         simpleFormDemo.navigateIntoInputFormsMenu();
     }
 
     @AfterEach
     void tearDown() {
-        driver.quit();
+        simpleFormDemo.quitWebDriver();
     }
 
     @Test
