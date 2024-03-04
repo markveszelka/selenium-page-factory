@@ -19,7 +19,6 @@ public class SimpleFormDemo extends InputForm {
     private final By getTotalButtonElement = By.xpath("//button[text()='Get Total']");
     private final By totalValueElement = By.id("displayvalue");
 
-
     public SimpleFormDemo(WebDriver webDriver) {
         super(webDriver);
     }

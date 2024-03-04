@@ -13,7 +13,6 @@ public class SelectDropdownList extends InputForm {
     private final By dropDownMenuElement = By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[4]/a");
     private final By daySelectElement = By.id("select-demo");
 
-
     public SelectDropdownList(WebDriver webDriver) {
         super(webDriver);
     }
