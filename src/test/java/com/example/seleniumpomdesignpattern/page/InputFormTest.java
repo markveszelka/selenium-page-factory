@@ -23,6 +23,7 @@ class InputFormTest {
 
     @Test
     void navigateIntoInputFormsMenu() {
+        // Arrange in setUp()
         // Act
         simpleFormDemo.navigateIntoInputFormsMenu();
         // Assert

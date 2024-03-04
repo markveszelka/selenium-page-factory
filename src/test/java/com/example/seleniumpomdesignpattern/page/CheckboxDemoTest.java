@@ -19,7 +19,9 @@ class CheckboxDemoTest {
         return Stream.of(
                 Arguments.of(true, List.of(true, true, true, true)),
                 Arguments.of(false, List.of(false, false, false, false)),
-                Arguments.of(true, List.of(false, true, false, true)));
+                Arguments.of(true, List.of(false, true, false, true)),
+                Arguments.of(true, List.of(false, false, false, true))
+        );
     }
 
     @BeforeEach
@@ -37,6 +39,7 @@ class CheckboxDemoTest {
     @ParameterizedTest
     @MethodSource("checkboxValidationTestCases")
     void checkBoxValidation(boolean singleCheckBoxValue, List<Boolean> multipleCheckboxValues) {
+        // Arrange in setUp()
         // Act
         checkboxDemo.checkBoxValidation(singleCheckBoxValue, multipleCheckboxValues);
         // Assert

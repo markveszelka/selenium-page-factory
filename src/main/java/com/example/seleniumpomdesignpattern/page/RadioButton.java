@@ -1,51 +1,82 @@
 package com.example.seleniumpomdesignpattern.page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Objects;
 
 public class RadioButton extends InputForm {
 
-    public final static By MALE_1 = By.xpath("//input[@value='Male' and @name='optradio']");
-    public final static By FEMALE_1 = By.xpath("//input[@value='Female' and @name='optradio']");
-    public final static By MALE_2 = By.xpath("//input[@value='Male' and @name='gender']");
-    public final static By FEMALE_2 = By.xpath("//input[@value='Female' and @name='gender']");
-    public final static By ZERO_TO_FIVE = By.xpath("//input[@value='0 - 5']");
-    public final static By FIVE_TO_FIFTEEN = By.xpath("//input[@value='5 - 15']");
-    public final static By FIFTEEN_TO_FIFTY = By.xpath("//input[@value='15 - 50']");
-    private final static By GET_VALUES_BUTTON = By.xpath("//*[@id=\"easycont\"]/div/div[2]/div[2]/div[2]/button");
-    private final static By RADIO_BUTTONS_MENU = By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[3]/a");
-    private final static By GET_VALUE_BUTTON = By.id("buttoncheck");
-    private final static By GET_SINGLE_VALUE = By.xpath("//p[@class='radiobutton']");
-    private final static By GET_MULTIPLE_VALUES = By.xpath("//p[@class='groupradiobutton']");
+    @FindBy(xpath = "//input[@value='Male' and @name='optradio']")
+    private WebElement male1;
+    @FindBy(xpath = "//input[@value='Female' and @name='optradio']")
+    private WebElement female1;
+    @FindBy(xpath = "//input[@value='Male' and @name='gender']")
+    private WebElement male2;
+    @FindBy(xpath = "//input[@value='Female' and @name='gender']")
+    private WebElement female2;
+    @FindBy(xpath = "//input[@value='0 - 5']")
+    private WebElement zeroToFive;
+    @FindBy(xpath = "//input[@value='5 - 15']")
+    private WebElement fiveToFifteen;
+    @FindBy(xpath = "//input[@value='15 - 50']")
+    private WebElement fifteenToFifty;
+    // TODO: Refactor this XPath
+    @FindBy(xpath = "//*[@id=\"easycont\"]/div/div[2]/div[2]/div[2]/button")
+    private WebElement getValuesButton;
+    // TODO: Refactor this XPath
+    @FindBy(xpath = "//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[3]/a")
+    private WebElement radioButtonsMenu;
+    @FindBy(id = "buttoncheck")
+    private WebElement getValueButton;
+    @FindBy(xpath = "//p[@class='radiobutton']")
+    private WebElement getSingleValue;
+    @FindBy(xpath = "//p[@class='groupradiobutton']")
+    private WebElement getMultipleValues;
 
     public RadioButton(WebDriver webDriver) {
         super(webDriver);
     }
 
     public void selectRadioButtons() {
-        driver.findElement(RADIO_BUTTONS_MENU).click();
-        driver.findElement(GET_VALUE_BUTTON).click();
+        radioButtonsMenu.click();
+        getValueButton.click();
     }
 
-    public void singleRadioButton(By genderRadioButton) {
-        driver.findElement(genderRadioButton).click();
-        driver.findElement(GET_VALUE_BUTTON).click();
-    }
+    public void clickSingleRadioButton(String selectedValue) {
+        List<WebElement> radioElements = List.of(male1, female1);
 
-    public void multipleRadioButtons(List<By> radioButtons) {
-        for (By radioButton : radioButtons) {
-            driver.findElement(radioButton).click();
+        for (WebElement radioElement : radioElements) {
+            if (Objects.equals(radioElement.getAttribute("value"), selectedValue)) {
+                radioElement.click();
+                break;
+            }
         }
-        driver.findElement(GET_VALUES_BUTTON).click();
+
+        getValueButton.click();
+    }
+
+    public void clickMultipleRadioButtons(List<String> selectedValues) {
+        List<WebElement> radioElements = List.of(male2, female2, zeroToFive, fiveToFifteen, fifteenToFifty);
+
+        for (String radioButton : selectedValues) {
+            for (WebElement radioElement : radioElements) {
+                if (radioButton.equals(radioElement.getAttribute("value"))) {
+                    radioElement.click();
+                }
+            }
+        }
+
+        getValuesButton.click();
     }
 
     public String getSingleValue() {
-        return driver.findElement(GET_SINGLE_VALUE).getText();
+        return getSingleValue.getText();
     }
 
     public String getMultipleValues() {
-        return driver.findElement(GET_MULTIPLE_VALUES).getText();
+        return getMultipleValues.getText();
     }
 }

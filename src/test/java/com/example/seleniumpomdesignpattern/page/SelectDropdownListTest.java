@@ -28,6 +28,7 @@ class SelectDropdownListTest {
 
     @Test
     void selectCurrentDay() {
+        // Arrange in setUp()
         // Act
         selectDropdownList.selectCurrentDay();
         // Assert

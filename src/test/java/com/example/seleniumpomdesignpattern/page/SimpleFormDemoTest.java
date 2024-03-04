@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class SimpleFormDemoTest {
 
@@ -26,6 +27,7 @@ class SimpleFormDemoTest {
 
     @Test
     void navigateToSimpleFormDemo() {
+        // Arrange in setUp()
         // Act
         simpleFormDemo.navigateToSimpleFormDemo();
         // Assert
@@ -33,26 +35,25 @@ class SimpleFormDemoTest {
         Assertions.assertEquals(expected, simpleFormDemo.getPageHeading());
     }
 
-    @Test
-    void showMessageInInputField() {
+    @ParameterizedTest
+    @ValueSource(strings = {"Hello World", "Test 1 Test 2", "Mark is my name"})
+    void showMessageInInputField(String parameter) {
         // Arrange
         simpleFormDemo.navigateToSimpleFormDemo();
         // Act
-        simpleFormDemo.showMessageInInputField();
+        simpleFormDemo.sendKeysIntoInputField(parameter);
         // Assert
-        String expected = "Hello World";
-        Assertions.assertEquals(expected, simpleFormDemo.getMessage());
+        Assertions.assertEquals(parameter, simpleFormDemo.getMessage());
     }
 
     @ParameterizedTest
-    @CsvSource({"100, 300", "10, 90", "400, 600"})
-    void getTotalOfTwoInputField(int num1, int num2) {
+    @CsvSource({"100, 300, 400", "10, 90, 100", "400, 600, 1000", "2, 8, 10", "17, 13, 30"})
+    void getTotalOfTwoInputField(int num1, int num2, int expected) {
         // Arrange
         simpleFormDemo.navigateToSimpleFormDemo();
         // Act
-        simpleFormDemo.getTotalOfTwoInputField(num1, num2);
+        simpleFormDemo.getTotalValueOfTwoInputFields(num1, num2);
         // Assert
-        int expected = num1 + num2;
         Assertions.assertEquals(expected, Integer.parseInt(simpleFormDemo.getTotal()));
     }
 }

@@ -1,29 +1,33 @@
 package com.example.seleniumpomdesignpattern.page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class CheckboxDemo extends InputForm {
 
-    private final By checkBoxMenu = By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[2]/a");
-    private final By ageCheckBox = By.id("isAgeSelected");
-    private final By optionCheckBox = By.xpath("//input[@class='cb1-element']");
+    // TODO: Refactor this XPath
+    @FindBy(xpath = "//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[2]/a")
+    private WebElement checkBoxMenu;
+    @FindBy(id = "isAgeSelected")
+    private WebElement ageCheckBox;
+    @FindBy(xpath = "//input[@class='cb1-element']")
+    private List<WebElement> optionCheckBox;
 
     public CheckboxDemo(WebDriver webDriver) {
         super(webDriver);
     }
 
     public void checkBoxValidation(boolean checkboxState, List<Boolean> checkboxStates) {
-        driver.findElement(checkBoxMenu).click();
+        checkBoxMenu.click();
         clickSingleCheckBox(checkboxState);
         clickMultipleCheckBoxes(checkboxStates);
     }
 
     private void clickMultipleCheckBoxes(List<Boolean> checkboxStates) {
-        List<WebElement> optionCheckBoxElements = driver.findElements(optionCheckBox);
+        List<WebElement> optionCheckBoxElements = optionCheckBox;
         for (int i = 0; i < optionCheckBoxElements.size(); i++) {
             if (checkboxStates.get(i)) {
                 optionCheckBoxElements.get(i).click();
@@ -33,16 +37,16 @@ public class CheckboxDemo extends InputForm {
 
     private void clickSingleCheckBox(boolean checkboxState) {
         if (checkboxState) {
-            driver.findElement(ageCheckBox).click();
+            ageCheckBox.click();
         }
     }
 
     public boolean isSingleCheckboxChecked() {
-        return driver.findElement(ageCheckBox).isSelected();
+        return ageCheckBox.isSelected();
     }
 
     public boolean isMultipleCheckboxChecked(int index) {
-        List<WebElement> elements = driver.findElements(optionCheckBox);
+        List<WebElement> elements = optionCheckBox;
         return elements.get(index).isSelected();
     }
 }
