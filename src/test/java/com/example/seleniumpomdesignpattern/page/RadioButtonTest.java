@@ -19,16 +19,16 @@ class RadioButtonTest {
 
     public static Stream<Arguments> singleRadioTestCases() {
         return Stream.of(
-                Arguments.of(RadioButton.MALE_1_ELEMENT),
-                Arguments.of(RadioButton.FEMALE_1_ELEMENT)
+                Arguments.of(RadioButton.MALE_1),
+                Arguments.of(RadioButton.FEMALE_1)
         );
     }
 
     public static Stream<Arguments> multipleRadioTestCases() {
         return Stream.of(
-                Arguments.of(List.of(RadioButton.MALE_2_ELEMENT, RadioButton.FIFTEEN_TO_FIFTY)),
-                Arguments.of(List.of(RadioButton.FEMALE_2_ELEMENT, RadioButton.ZERO_TO_FIVE)),
-                Arguments.of(List.of(RadioButton.MALE_2_ELEMENT, RadioButton.FIVE_TO_FIFTEEN))
+                Arguments.of(List.of(RadioButton.MALE_2, RadioButton.FIFTEEN_TO_FIFTY)),
+                Arguments.of(List.of(RadioButton.FEMALE_2, RadioButton.ZERO_TO_FIVE)),
+                Arguments.of(List.of(RadioButton.MALE_2, RadioButton.FIVE_TO_FIFTEEN))
         );
     }
 

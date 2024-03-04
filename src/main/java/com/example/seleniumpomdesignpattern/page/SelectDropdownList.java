@@ -10,16 +10,16 @@ import java.util.Locale;
 
 public class SelectDropdownList extends InputForm {
 
-    private final By dropDownMenuElement = By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[4]/a");
-    private final By daySelectElement = By.id("select-demo");
+    private final By dropDownMenu = By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[4]/a");
+    private final By daySelect = By.id("select-demo");
 
     public SelectDropdownList(WebDriver webDriver) {
         super(webDriver);
     }
 
     public void selectCurrentDay() {
-        driver.findElement(dropDownMenuElement).click();
-        Select daySelect = new Select(driver.findElement(daySelectElement));
+        driver.findElement(dropDownMenu).click();
+        Select daySelect = new Select(driver.findElement(this.daySelect));
         daySelect.selectByValue(getToday());
     }
 
@@ -29,7 +29,7 @@ public class SelectDropdownList extends InputForm {
     }
 
     public String getSelected() {
-        Select daySelect = new Select(driver.findElement(daySelectElement));
+        Select daySelect = new Select(driver.findElement(this.daySelect));
         return daySelect.getFirstSelectedOption().getText();
     }
 }

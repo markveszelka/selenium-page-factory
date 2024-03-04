@@ -8,15 +8,15 @@ import java.util.Objects;
 
 public abstract class InputForm extends BasePage {
 
-    private final By OPEN_DROP_DOWN = By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[1]");
-    private final By inputFormElement = By.xpath("//a[text()='Input Forms']");
+    private final static By OPEN_DROP_DOWN = By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[1]");
+    private final By inputForm = By.xpath("//a[text()='Input Forms']");
 
     public InputForm(WebDriver webDriver) {
         super(webDriver);
     }
 
     public void navigateIntoInputFormsMenu() {
-        driver.findElement(inputFormElement).click();
+        driver.findElement(inputForm).click();
     }
 
     public boolean isDropDownOpen() {
