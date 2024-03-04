@@ -11,7 +11,6 @@ class InputFormTest {
 
     private static final String TEST_PAGE_URL = "https://web.archive.org/web/20180930221201/http://www.seleniumeasy.com/test/";
     private WebDriver driver;
-    private SimpleFormDemo simpleFormDemo;
 
     @BeforeEach
     void setUp() {
@@ -27,7 +26,7 @@ class InputFormTest {
     @Test
     void navigateIntoInputFormsMenu() {
         // Arrange
-        simpleFormDemo = new SimpleFormDemo(driver);
+        SimpleFormDemo simpleFormDemo = new SimpleFormDemo(driver);
         // Act
         simpleFormDemo.navigateIntoInputFormsMenu();
         // Assert
