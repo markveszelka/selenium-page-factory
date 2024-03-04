@@ -11,8 +11,7 @@ import java.util.Locale;
 
 public class SelectDropdownList extends InputForm {
 
-    // TODO: Refactor this XPath
-    @FindBy(xpath = "//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[4]/a")
+    @FindBy(xpath = "(//a[@href='./basic-select-dropdown-demo.html'])[2]")
     private WebElement dropDownMenu;
     @FindBy(id = "select-demo")
     private WebElement daySelect;

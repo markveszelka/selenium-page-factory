@@ -9,6 +9,8 @@ import java.util.Objects;
 
 public class RadioButton extends InputForm {
 
+    @FindBy(xpath = "(//a[@href='./basic-radiobutton-demo.html'])[2]")
+    private WebElement radioButtonsMenu;
     @FindBy(xpath = "//input[@value='Male' and @name='optradio']")
     private WebElement male1;
     @FindBy(xpath = "//input[@value='Female' and @name='optradio']")
@@ -23,12 +25,8 @@ public class RadioButton extends InputForm {
     private WebElement fiveToFifteen;
     @FindBy(xpath = "//input[@value='15 - 50']")
     private WebElement fifteenToFifty;
-    // TODO: Refactor this XPath
-    @FindBy(xpath = "//*[@id=\"easycont\"]/div/div[2]/div[2]/div[2]/button")
+    @FindBy(xpath = "//button[@class='btn btn-default' and text()='Get values']")
     private WebElement getValuesButton;
-    // TODO: Refactor this XPath
-    @FindBy(xpath = "//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[3]/a")
-    private WebElement radioButtonsMenu;
     @FindBy(id = "buttoncheck")
     private WebElement getValueButton;
     @FindBy(xpath = "//p[@class='radiobutton']")

@@ -8,8 +8,7 @@ import java.util.List;
 
 public class CheckboxDemo extends InputForm {
 
-    // TODO: Refactor this XPath
-    @FindBy(xpath = "//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[2]/a")
+    @FindBy(xpath = "(//a[@href='./basic-checkbox-demo.html'])[2]")
     private WebElement checkBoxMenu;
     @FindBy(id = "isAgeSelected")
     private WebElement ageCheckBox;

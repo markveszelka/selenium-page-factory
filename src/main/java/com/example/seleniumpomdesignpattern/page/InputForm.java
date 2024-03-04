@@ -8,8 +8,7 @@ import java.util.Objects;
 
 public abstract class InputForm extends BasePage {
 
-    // TODO: Refactor this XPath
-    @FindBy(xpath = "//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[1]")
+    @FindBy(xpath = "(//a[@href='./basic-first-form-demo.html'])[2]")
     private WebElement openDropDown;
     @FindBy(xpath = "//a[text()='Input Forms']")
     private WebElement inputForm;
@@ -26,6 +25,4 @@ public abstract class InputForm extends BasePage {
         String attribute = openDropDown.getAttribute("style");
         return Objects.equals(attribute, "display: list-item;");
     }
-
-
 }
