@@ -3,16 +3,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/markveszelka/selenium-jira-test">
+  <a href="https://github.com/markveszelka/selenium-page-factory">
     <img src="images/readme_logo.png" alt="Logo" width="50%" height="50%">
   </a>
 
-<h3 align="center">Selenium Jira Automation Test</h3>
+<h3 align="center">Page Factory Design Pattern with Selenium</h3>
 
   <p align="center">
     Study project - Teamwork
     <br />
-    <a href="https://github.com/markveszelka/selenium-jira-test"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/markveszelka/selenium-page-factory"><strong>Explore the docs »</strong></a>
     <br />
     <br />
   </p>
@@ -23,10 +23,12 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/markveszelka/selenium-jira-test)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/markveszelka/selenium-page-factory)
 
-The project uses the Selenium Webdriver to make automated test cases on the JIRA website. This is a study project that
-focuses on the practice of automation test writing using Java and OOP principles.
+This project utilizes Selenium WebDriver to automate test cases on a practice Selenium webpage. It serves as a study
+project focusing on the implementation of automation testing, employing the Page Factory Design Pattern alongside
+Keyword- and Data-driven testing practices. Additionally, it utilizes Java and object-oriented programming (OOP)
+principles.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -66,7 +68,7 @@ To build and manage the project dependencies, Maven is required. You can install
 
 1. Clone the repo
    ```sh
-   git clone git@github.com:markveszelka/selenium-jira-test.git
+   git clone git@github.com:markveszelka/selenium-page-factory.git
    ```
 2. Install the dependencies using Maven
    ```sh
@@ -83,7 +85,7 @@ To build and manage the project dependencies, Maven is required. You can install
 Mark Veszelka - [github](https://github.com/markveszelka) - [linkedin](https://www.linkedin.com/in/mark-veszelka/) -
 mark.veszelka@gmail.com
 
-Project Link: https://github.com/markveszelka/selenium-jira-test
+Project Link: https://github.com/markveszelka/selenium-page-factory
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
